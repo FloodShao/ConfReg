@@ -1,0 +1,57 @@
+doctype html
+html
+  head
+    //- 定义html文档的title标签
+    title #{title}
+    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    style(type = 'text/css').
+      body{
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    link(rel='stylesheet', href='/stylesheets/bootstrap-responsive.css')
+    script(src='/javascripts/jQuery.js')
+    script(src='javascripts/bootstrap.js')
+  
+  body
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.btn.btn-navbar(data-toggle='collapse', data-target='.nav-toggle')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.brand(href='/') IMWS-AMP 2020
+          .nav-collapse
+            ul.nav
+              li.active
+                a(href='/') 首页
+              -if(!user)
+                li
+                  a(href='/login') 登录
+                li
+                  a(href='/reg') 注册
+              -if(user)
+                li
+                  a(href='/logout') 登出
+    
+    .container#container
+      //- 动态交互显示, 注意if语句一定要加括号
+      -if (success)
+        .alert.alert-success #{success}
+      -if (error)
+        .alert.alert-error #{error}
+      
+    block content
+
+
+    .navbar-fixed-bottom 
+      .navbar-inner
+        .footer
+          p Sponsored by NUS, IEEE-MTT-S.
+          p Guoliang Shao NUS [@2020] All Right Reserved.
+
+
+
+

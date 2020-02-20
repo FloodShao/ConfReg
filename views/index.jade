@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  h2 #{msg}
+
+  -if(!user)
+    .container
+        .col-md-3.col-md-offset-1
+          .col-md-1.left
+            img.img-fluid(src='/images/NUS-icon.jpg')
+          .col-md-1.right
+            img.img-fluid(src='/images/mtt-s-logo.png')
+
+  //- 如果user存在的话  
+  -if(user) 
+    p let's play
+    
+
+  
+
+
+
+
+
+  
